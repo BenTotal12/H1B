@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPT to H-1B: Complete Process Guide</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --accent: #2980b9;
+            --danger: #c0392b;
+            --warning: #e67e22;
+            --success: #27ae60;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --light-text: #7f8c8d;
+            --border: #dce1e8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5f8a 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.4em; margin-bottom: 10px; letter-spacing: -0.5px; }
+        .header .subtitle { font-size: 1.15em; opacity: 0.85; max-width: 700px; margin: 0 auto; }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Container */
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 25px; }
+
+        /* Alert boxes */
+        .alert {
+            padding: 18px 22px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid;
+            font-size: 0.95em;
+        }
+        .alert-danger {
+            background: #fdf0ef;
+            border-color: var(--danger);
+            color: #922b21;
+        }
+        .alert-warning {
+            background: #fef9e7;
+            border-color: var(--warning);
+            color: #935116;
+        }
+        .alert-info {
+            background: #eaf2f8;
+            border-color: var(--accent);
+            color: #1a5276;
+        }
+        .alert-success {
+            background: #eafaf1;
+            border-color: var(--success);
+            color: #1e8449;
+        }
+        .alert strong { display: block; margin-bottom: 4px; font-size: 1.02em; }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: var(--primary);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+        .section h3 {
+            font-size: 1.15em;
+            color: var(--accent);
+            margin: 20px 0 10px 0;
+        }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 40px; margin: 20px 0; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--success));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px 24px;
+            background: var(--bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 24px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item.critical::before { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.95em;
+            margin-bottom: 6px;
+        }
+        .timeline-item.critical .timeline-date { color: var(--danger); }
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        /* Role cards */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .role-card {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--accent);
+        }
+        .role-card.employer { border-top-color: #8e44ad; }
+        .role-card.applicant { border-top-color: var(--success); }
+        .role-card.lawyer { border-top-color: var(--warning); }
+        .role-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.15em;
+        }
+        .role-card.employer h3 { color: #8e44ad; }
+        .role-card.applicant h3 { color: var(--success); }
+        .role-card.lawyer h3 { color: var(--warning); }
+        .role-card ul { padding-left: 18px; }
+        .role-card li { margin-bottom: 6px; font-size: 0.93em; }
+
+        /* Denial risk boxes */
+        .denial-risk {
+            background: #fdf0ef;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 15px 0;
+        }
+        .denial-risk h4 {
+            color: var(--danger);
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .denial-risk ul { padding-left: 18px; }
+        .denial-risk li { margin-bottom: 5px; font-size: 0.93em; color: #922b21; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.93em;
+        }
+        th, td {
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) { background: #f8f9fb; }
+
+        /* Checklist */
+        .checklist { list-style: none; padding: 0; }
+        .checklist li {
+            padding: 10px 14px;
+            margin-bottom: 6px;
+            background: var(--bg);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 0.93em;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .checklist li::before {
+            content: '☐';
+            font-size: 1.2em;
+            flex-shrink: 0;
+            margin-top: -1px;
+        }
+        .checklist li.done::before { content: '☑'; color: var(--success); }
+        .checklist li.done { text-decoration: line-through; color: var(--light-text); }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.78em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tag-employer { background: #f0e6f6; color: #8e44ad; }
+        .tag-applicant { background: #eafaf1; color: #1e8449; }
+        .tag-lawyer { background: #fef9e7; color: #935116; }
+        .tag-critical { background: #fdf0ef; color: var(--danger); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--light-text);
+            font-size: 0.85em;
+        }
+
+        /* Editable indicator */
+        [contenteditable="true"]:hover {
+            outline: 2px dashed var(--accent);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 3px;
+            background: #fffef5;
+        }
+
+        /* Toolbar */
+        .toolbar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .toolbar-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+        }
+        .toolbar-btn:hover { background: var(--accent); transform: scale(1.05); }
+
+        /* Print */
+        @media print {
+            .header { padding: 25px; }
+            .section { box-shadow: none; break-inside: avoid; }
+            .no-print { display: none !important; }
+            .toolbar { display: none !important; }
+            body { background: white; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.7em; }
+            .container { padding: 15px; }
+            .section { padding: 20px; }
+            .roles-grid { grid-template-columns: 1fr; }
+        }
+
+        .toc { columns: 2; column-gap: 20px; }
+        .toc a {
+            display: block;
+            padding: 6px 0;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc a:hover { color: var(--primary); text-decoration: underline; }
+        @media (max-width: 768px) { .toc { columns: 1; } }
+
+        .fee-table td:last-child { text-align: right; font-weight: 600; }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Back to top */
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.3em;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            border: none;
+            transition: opacity 0.3s;
+        }
+        .back-to-top:hover { background: var(--primary); }
+
+        /* Notes area */
+        .notes-area {
+            background: #fffef5;
+            border: 2px dashed var(--warning);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 120px;
+            margin-top: 15px;
+        }
+        .notes-area:empty::before {
+            content: 'Click here to add your personal notes...';
+            color: var(--light-text);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header" id="top">
+        <h1 contenteditable="true">OPT to H-1B Visa: Complete Process Guide</h1>
+        <p class="subtitle" contenteditable="true">A comprehensive step-by-step guide for applicants on OPT status applying for H-1B sponsorship — covering the roles of the employer, attorney, and applicant with critical deadlines and denial risk factors.</p>
+        <div class="badge">FY 2027 Cap Season &bull; Updated for 2026 Filing Rules</div>
+    </div>
+
+    <div class="container">
+
+        <!-- IMPORTANT NOTICE -->
+        <div class="alert alert-danger">
+            <strong>&#9888; Critical Notice for FY 2027 (Filing in 2026)</strong>
+            <span contenteditable="true"><b>New weighted selection process</b> effective February 27, 2026: registrations weighted by offered wage relative to prevailing wage—higher wages = better odds. Registration window: <b>March 4–19, 2026 at noon ET</b>. All content is editable.</span>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="section">
+            <h2>Table of Contents</h2>
+            <div class="toc">
+                <a href="#overview">1. Process Overview &amp; Eligibility</a>
+                <a href="#roles">2. Roles: Employer, Lawyer &amp; Applicant</a>
+                <a href="#timeline">3. Complete Timeline (Month by Month)</a>
+                <a href="#registration">4. H-1B Lottery Registration (March)</a>
+                <a href="#post-selection">5. Post-Selection &amp; Petition Filing</a>
+                <a href="#approval">6. Approval &amp; Status Change (Oct 1)</a>
+                <a href="#cap-gap">7. OPT Cap-Gap Extension</a>
+                <a href="#weighted">8. New Weighted Selection Process</a>
+                <a href="#denials">9. Top Denial Risks &amp; How to Avoid Them</a>
+                <a href="#documents">10. Master Document Checklist</a>
+                <a href="#fees">11. Fee Schedule</a>
+                <a href="#healthcare-roadmap">13. Case Study: Primary Care/Urgent Care Practice</a>
+                <a href="#notes">14. Personal Notes</a>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 1: OVERVIEW -->
+        <!-- ================================================================ -->
+        <div class="section" id="overview">
+            <h2>1. Process Overview &amp; Eligibility</h2>
+
+            <h3>What is the H-1B Visa?</h3>
+            <p contenteditable="true">The H-1B allows U.S. employers to temporarily employ foreign workers in <b>specialty occupations</b> requiring a bachelor's degree in a field directly related to the job. Annual cap: <b>65,000</b> regular + <b>20,000</b> master's cap. Valid 3 years, extendable to 6 years total (exceptions for green card applicants).</p>
+
+            <h3>Eligibility Requirements for OPT Holders</h3>
+            <div contenteditable="true">
+                <ul>
+                    <li><b>Valid OPT or STEM OPT status</b> — You must currently be in valid F-1 status with an Employment Authorization Document (EAD)</li>
+                    <li><b>Qualifying job offer</b> — The offered position must be a "specialty occupation" requiring at least a bachelor's degree in a directly related field</li>
+                    <li><b>Employer-employee relationship</b> — A bona fide employer must petition on your behalf; you cannot self-petition</li>
+                    <li><b>Educational qualification</b> — You must hold at least a U.S. bachelor's degree or foreign equivalent in a field directly related to the position</li>
+                    <li><b>Valid passport</b> — Must be valid and match the information submitted in the lottery registration exactly</li>
+                    <li><b>Maintained F-1 status</b> — No unauthorized employment, no gaps in status, all SEVIS reporting up to date</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>&#128161; Key Concept: Cap-Subject vs. Cap-Exempt</strong>
+                <span contenteditable="true">Most OPT holders are <b>cap-subject</b> (must enter lottery). Cap-exempt employers: universities, affiliated nonprofit research orgs, government research orgs—can file anytime without lottery. This guide focuses on cap-subject process.</span>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 2: ROLES -->
+        <!-- ================================================================ -->
+        <div class="section" id="roles">
+            <h2>2. Roles &amp; Responsibilities</h2>
+            <p contenteditable="true">The H-1B process is a <b>three-party collaboration</b>. Understanding who does what — and when — is critical to avoiding delays, errors, or denials. The employer is the petitioner; the applicant is the beneficiary; the attorney facilitates and ensures compliance.</p>
+
+            <div class="roles-grid">
+
+                <!-- EMPLOYER -->
+                <div class="role-card employer">
+                    <h3>&#127970; The Employer (Petitioner)</h3>
+                    <ul contenteditable="true">
+                        <li>Initiates process (legal petitioner; applicant cannot self-file)</li>
+                        <li>Registers for H-1B lottery via USCIS account</li>
+                        <li>Pays all mandatory fees: base, ACWIA, fraud prevention, asylum program</li>
+                        <li>Defines job duties and degree requirements for specialty occupation</li>
+                        <li>Obtains prevailing wage determination (DOL or OES data)</li>
+                        <li>Files Labor Condition Application (LCA) with DOL</li>
+                        <li>Maintains public access file at worksite</li>
+                        <li>Posts LCA notice at worksite for 10 business days</li>
+                        <li>Signs and files Form I-129 with supporting evidence</li>
+                        <li>Provides detailed employer support letter</li>
+                        <li>Pays higher of prevailing/actual wage from day one</li>
+                        <li>Cannot retaliate against worker for asserting H-1B rights</li>
+                    </ul>
+                </div>
+
+                <!-- ATTORNEY -->
+                <div class="role-card lawyer">
+                    <h3>&#9878; The Immigration Attorney</h3>
+                    <ul contenteditable="true">
+                        <li>Evaluates specialty occupation eligibility and applicant qualifications</li>
+                        <li>Determines prevailing wage strategy (SOC code, wage level, geographic area)—critical for weighted selection</li>
+                        <li>Prepares and files LCA (Form ETA-9035) with DOL</li>
+                        <li>Submits lottery registration through USCIS online account</li>
+                        <li>Prepares complete I-129 petition package with supporting docs</li>
+                        <li>Drafts employer support letter with specialty occupation language</li>
+                        <li>Obtains credential evaluations for foreign degrees or experience equivalency</li>
+                        <li>Coordinates change of status strategy (COS vs. consular processing)</li>
+                        <li>Responds to RFEs within 30-87 day deadline</li>
+                        <li>Advises on cap-gap protections and status maintenance</li>
+                        <li>Monitors case and communicates updates to employer and applicant</li>
+                        <li>Ensures compliance with LCA posting and public access file requirements</li>
+                    </ul>
+                </div>
+
+                <!-- APPLICANT -->
+                <div class="role-card applicant">
+                    <h3>&#128100; The Applicant (Beneficiary)</h3>
+                    <ul contenteditable="true">
+                        <li>Provides all documents: passport, I-94, visa stamps, I-20s, EAD, diplomas, transcripts, resume</li>
+                        <li>Ensures passport info matches exactly—verify number, country, expiration carefully</li>
+                        <li>Obtains credential evaluation for foreign degrees (NACES/AICE member evaluator)</li>
+                        <li>Maintains valid F-1/OPT status continuously—lapses or violations can be fatal</li>
+                        <li>Reports employment to DSO per OPT/STEM OPT requirements (including semi-annual STEM validation)</li>
+                        <li>Does NOT pay employer fees (base, training, fraud, asylum)—may pay premium processing only</li>
+                        <li>Reviews all documents for accuracy before submission</li>
+                        <li>Responds promptly to attorney requests—delays cause missed deadlines</li>
+                        <li>Avoids international travel without attorney guidance (can terminate cap-gap/COS)</li>
+                        <li>Maintains organized personal immigration file with copies of all documents</li>
+                        <li>Reports job/address changes immediately; STEM OPT to DSO within 10 days</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="denial-risk">
+                <h4>&#128683; Common Role-Related Denial Risks</h4>
+                <ul contenteditable="true">
+                    <li><b>Applicant pays filing fees:</b> Beneficiary paying employer-obligated fees (directly or via payroll deduction) = denial/revocation and employer debarment</li>
+                    <li><b>No employer-employee relationship:</b> Must prove right to control work (hire, fire, supervise, assign duties)—heightened scrutiny for third-party placements</li>
+                    <li><b>Cannot pay prevailing wage:</b> Employer must demonstrate financial ability via tax returns, financial statements, or annual reports</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 3: TIMELINE -->
+        <!-- ================================================================ -->
+        <div class="section" id="timeline">
+            <h2>3. Complete Timeline — Month by Month</h2>
+            <p contenteditable="true">Below is the typical timeline for an OPT holder going through the cap-subject H-1B process for <b>FY 2027</b> (employment starting October 1, 2026). Dates are based on USCIS announcements as of early 2026.</p>
+
+            <div class="timeline">
+
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">October – December 2025</div>
+                    <div class="timeline-title">Early Preparation Phase</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-employer">Employer</span> <span class="tag tag-lawyer">Attorney</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <ul style="margin-top:10px">
+                            <li><b>Employer:</b> Decide to sponsor; engage attorney; define position's specialty occupation requirements and job duties; budget for fees</li>
+                            <li><b>Attorney:</b> Conduct eligibility assessment; identify SOC code; begin prevailing wage research; advise on wage level strategy for weighted selection</li>
+                            <li><b>Applicant:</b> Gather documents; renew passport if expiring before Oct 2027; obtain credential evaluation for foreign degrees; verify SEVIS is current; confirm OPT expiration date</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">January – February 2026</div>
+                    <div class="timeline-title">Pre-Registration Preparation</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-employer">Employer</span> <span class="tag tag-lawyer">Attorney</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <ul style="margin-top:10px">
+                            <li><b>Attorney:</b> Create/update USCIS online account; compile beneficiary data (full legal name, DOB, country of birth/citizenship, gender, passport number/country/expiration)—<b>triple-check passport details</b></li>
+                            <li><b>Employer:</b> Confirm job offer details (worksite, title, duties, salary); verify salary meets prevailing wage; authorize LCA preparation</li>
+                            <li><b>Applicant:</b> Provide passport and documents immediately; <b>DO NOT get new passport</b> without coordinating with attorney—registration must match current passport</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 3 - Critical -->
+                <div class="timeline-item critical">
+                    <div class="timeline-date">February 27, 2026</div>
+                    <div class="timeline-title">New Weighted Selection Rule Takes Effect</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-critical">CRITICAL DATE</span></p>
+                        <p style="margin-top:10px"><b>Weighted selection process</b> takes effect: registrations weighted by offered wage relative to prevailing wage.</p>
+                        <ul style="margin-top:8px">
+                            <li>Wage Level III/IV positions: significantly better selection odds</li>
+                            <li>Wage Level I positions: reduced odds but remain eligible</li>
+                            <li>Prevailing wage level determined by SOC code and geographic area on LCA</li>
+                            <li>Must honestly reflect actual job requirements and beneficiary qualifications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 4 - Critical -->
+                <div class="timeline-item critical">
+                    <div class="timeline-date">March 4, 2026 (Noon ET) — March 19, 2026 (Noon ET)</div>
+                    <div class="timeline-title">H-1B Electronic Registration Window</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-critical">CRITICAL WINDOW — 15 DAYS ONLY</span> <span class="tag tag-employer">Employer</span> <span class="tag tag-lawyer">Attorney</span></p>
+                        <p style="margin-top:10px"><b>Submit registration via USCIS online account. Each registration requires:</b></p>
+                        <ul style="margin-top:8px">
+                            <li>Basic employer info (company name, EIN, address)</li>
+                            <li>Beneficiary: full legal name, DOB, country of birth/citizenship, gender</li>
+                            <li><b>Valid passport info</b>—number, country, expiration (must match passport for U.S. entry)</li>
+                            <li>Master's cap eligibility (U.S. master's or higher)</li>
+                            <li>Registration fee: <b>$215</b> per beneficiary via pay.gov</li>
+                            <li>Attestation under penalty of perjury (truthfulness, legitimate offer, no coordination)</li>
+                        </ul>
+                        <p style="margin-top:8px"><b>Applicant:</b> Be available for last-minute questions. Do NOT change passport during this period.</p>
+                        <p style="margin-top:8px"><em>No advantage to early submission. Registrations can be edited/deleted before window closes.</em></p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Late March – Early April 2026</div>
+                    <div class="timeline-title">Lottery Selection &amp; Notification</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-lawyer">Attorney</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <p style="margin-top:10px">USCIS runs weighted selection. Results in online account: <b>Selected</b> (may file petition), <b>Not Selected</b>, or <b>Submitted</b> (pending future rounds).</p>
+                        <ul style="margin-top:8px">
+                            <li><b>If Selected:</b> 90-day filing window (typically April 1–June 30, 2026) to submit complete I-129 petition</li>
+                            <li><b>If Not Selected:</b> Remain on OPT. Options: reapply next year, seek cap-exempt employer, explore O-1 visa, begin PERM, or continue studies</li>
+                        </ul>
+                        <p style="margin-top:8px"><em>FY 2026: ~120,141 selected from ~343,981 eligible (~35%). Weighted process may shift odds by wage level.</em></p>
+                    </div>
+                </div>
+
+                <!-- Step 6 - Critical -->
+                <div class="timeline-item critical">
+                    <div class="timeline-date">April 1 – June 30, 2026 (approximate)</div>
+                    <div class="timeline-title">Petition Filing Window — Form I-129</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-critical">CRITICAL DEADLINE</span> <span class="tag tag-employer">Employer</span> <span class="tag tag-lawyer">Attorney</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <p style="margin-top:10px"><b>Attorney prepares complete I-129 package:</b></p>
+                        <ul style="margin-top:8px">
+                            <li>Form I-129 + H Classification Supplement + Data Collection Supplement</li>
+                            <li>Certified LCA (ETA-9035)</li>
+                            <li>Employer support letter with specialty occupation analysis</li>
+                            <li>Beneficiary credentials (diplomas, transcripts, evaluations)</li>
+                            <li>Employer financial docs (ability to pay wage)</li>
+                            <li>H-1B selection notice copy</li>
+                            <li>Beneficiary immigration docs (passport, visa, I-94, I-20s, EAD)</li>
+                            <li>Form I-539 (if requesting Change of Status from F-1)</li>
+                            <li>All required fees</li>
+                        </ul>
+                        <p style="margin-top:8px"><b>Employer:</b> Sign forms; ensure LCA posted 10 days; maintain public access file</p>
+                        <p style="margin-top:6px"><b>Applicant:</b> Provide remaining docs; review package; sign forms; keep copies</p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">April – September 2026</div>
+                    <div class="timeline-title">USCIS Adjudication Period</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-lawyer">Attorney</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <p style="margin-top:10px"><b>Processing times:</b> Regular 3–8 months; Premium 15 business days</p>
+                        <ul style="margin-top:8px">
+                            <li><b>Approved:</b> H-1B status effective Oct 1</li>
+                            <li><b>RFE:</b> 30–87 days to respond. Common topics: specialty occupation, qualifications, employer-employee relationship, ability to pay</li>
+                            <li><b>NOID:</b> Notice of Intent to Deny—requires compelling response</li>
+                            <li><b>Denied:</b> May file motion to reopen/reconsider or appeal</li>
+                        </ul>
+                        <p style="margin-top:8px"><b>Applicant:</b> Maintain F-1/OPT status; continue OPT work; report to DSO; cap-gap protects status if OPT expires while pending (see Section 8); <b>avoid international travel</b></p>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">October 1, 2026</div>
+                    <div class="timeline-title">H-1B Status Begins</div>
+                    <div contenteditable="true">
+                        <p><span class="tag tag-employer">Employer</span> <span class="tag tag-applicant">Applicant</span></p>
+                        <p style="margin-top:10px">If approved with Change of Status, H-1B begins Oct 1. You receive Form I-797A with new I-94 attached.</p>
+                        <ul style="margin-top:8px">
+                            <li><b>Cannot begin H-1B employment before Oct 1</b> even if approved earlier</li>
+                            <li>F-1 status terminates Oct 1—notify DSO</li>
+                            <li>No visa stamp needed to work in U.S.—I-797A with I-94 sufficient while in country</li>
+                            <li>If traveling abroad after Oct 1, need H-1B visa stamp from consulate before re-entry</li>
+                        </ul>
+                        <p style="margin-top:8px"><b>Employer:</b> Begin H-1B compliance; pay LCA wage from day one; maintain public access file; notify USCIS of material changes</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- ================================================================ -->
+        <!-- SECTION 4: REGISTRATION -->
+        <!-- ================================================================ -->
+        <div class="section" id="registration">
+            <h2>4. H-1B Lottery Registration (March 2026)</h2>
+
+            <h3>Step-by-Step Registration Process</h3>
+            <table>
+                <tr>
+                    <th>Step</th>
+                    <th>Who</th>
+                    <th>Action</th>
+                    <th>Critical Details</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td>1</td>
+                    <td>Employer / Attorney</td>
+                    <td>Create USCIS online account</td>
+                    <td>Employer creates an organizational account at myaccount.uscis.gov. Attorney can be added as an authorized representative. Do this well before March 4.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>2</td>
+                    <td>Attorney</td>
+                    <td>Enter registrant (employer) info</td>
+                    <td>Company name, EIN, address, NAICS code, number of employees, authorized signatory details. Must exactly match IRS records.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>3</td>
+                    <td>Attorney</td>
+                    <td>Enter beneficiary information</td>
+                    <td>Full legal name (as on passport), DOB, country of birth, citizenship, gender, passport number, passport expiration, passport issuing country, master's cap eligibility.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>4</td>
+                    <td>Employer</td>
+                    <td>Review and sign attestation</td>
+                    <td>Under penalty of perjury: information is true, job offer is legitimate, no coordination with other registrants to unfairly increase selection chances.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>5</td>
+                    <td>Employer / Attorney</td>
+                    <td>Pay registration fee</td>
+                    <td>$215 per beneficiary via pay.gov. Payment must clear — failed payments completely invalidate the registration. Verify the credit card before submission.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>6</td>
+                    <td>Employer / Attorney</td>
+                    <td>Submit registration</td>
+                    <td>Carefully confirm all details before final submission. Registrations may be edited or deleted until the window closes on March 19 at noon ET.</td>
+                </tr>
+            </table>
+
+            <div class="denial-risk">
+                <h4>&#128683; Registration Pitfalls That Will Disqualify Your Entry</h4>
+                <ul contenteditable="true">
+                    <li><b>Invalid passport information:</b> Entering "N/A," "000000," or incorrect passport details causes the registration to be deemed not properly submitted — it won't be included in the lottery at all</li>
+                    <li><b>Duplicate registrations by same employer:</b> Only one registration per beneficiary per employer. Submitting duplicates can flag your case for fraud review</li>
+                    <li><b>Failed payment:</b> If the credit card payment fails or is reversed, the registration is permanently excluded from the lottery</li>
+                    <li><b>Coordinated multiple registrations:</b> Working with other companies to submit additional registrations for the same beneficiary to increase odds is federal fraud. USCIS actively investigates, denies petitions, and refers cases for criminal prosecution</li>
+                    <li><b>Wrong passport:</b> Registering with a passport you will NOT use for U.S. entry can invalidate the registration</li>
+                    <li><b>Missing the window:</b> The window closes at noon ET on March 19 — not midnight. Registrations submitted even one minute late are rejected</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 5: POST-SELECTION -->
+        <!-- ================================================================ -->
+        <div class="section" id="post-selection">
+            <h2>5. Post-Selection: Filing the H-1B Petition</h2>
+
+            <h3>If You Are Selected in the Lottery</h3>
+            <p contenteditable="true">Congratulations — selection is a major milestone. The employer (through the attorney) must now file a complete I-129 petition within the designated filing window. Time is of the essence: gather all remaining documents and respond to attorney requests immediately.</p>
+
+            <h3>Complete Petition Package Contents</h3>
+            <table>
+                <tr>
+                    <th>Document / Form</th>
+                    <th>Prepared By</th>
+                    <th>Key Requirements &amp; Notes</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Form I-129</b> + H Classification Supplement + Data Collection Supplement</td>
+                    <td>Attorney</td>
+                    <td>Signed by employer's authorized signatory. All fields must be completed accurately and consistently with other documents.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Certified LCA</b> (ETA-9035)</td>
+                    <td>Attorney / DOL</td>
+                    <td>Must be certified before filing. SOC code must match the specialty occupation. Wage must meet or exceed prevailing wage. Worksite must match.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Employer Support / Offer Letter</b></td>
+                    <td>Attorney (drafted), Employer (signed)</td>
+                    <td>Must include: specific job duties (not generic), minimum degree requirement in a specific field, explanation of how the degree relates to the position, offered salary, start date, and exact worksite address.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Specialty Occupation Evidence</b></td>
+                    <td>Attorney</td>
+                    <td>Must prove the position meets at least one regulatory criterion: (1) bachelor's is the normal minimum for the role; (2) industry standard requires a degree; (3) employer normally requires a degree for this role; (4) duties are so specialized that only a degreed individual could perform them.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Beneficiary's Credentials</b></td>
+                    <td>Applicant provides, Attorney compiles</td>
+                    <td>Diplomas, official transcripts, credential evaluation (foreign degrees), professional licenses, certifications, and experience letters from prior employers (if using experience toward degree equivalent).</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Employer-Employee Relationship Evidence</b></td>
+                    <td>Employer / Attorney</td>
+                    <td>Organizational chart, description of supervision structure, right to control work — especially critical for IT consulting, staffing, and third-party placements.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Employer Financial Documents</b></td>
+                    <td>Employer</td>
+                    <td>Tax returns (most recent year), audited financial statements, annual report, or bank statements proving ability to pay the offered wage.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Beneficiary Immigration Documents</b></td>
+                    <td>Applicant</td>
+                    <td>Passport (all pages with stamps), visa stamps, I-94, all I-20s, EAD card, prior approval notices (I-797), any prior petitions.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Form I-539</b> (if requesting COS)</td>
+                    <td>Attorney</td>
+                    <td>Request to change status from F-1 to H-1B effective October 1. Only needed if beneficiary is in the U.S. and wants to avoid consular processing.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>H-1B Selection Notice</b></td>
+                    <td>Attorney</td>
+                    <td>Print from USCIS online account and include in petition package.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Form I-907</b> (if using premium processing)</td>
+                    <td>Attorney</td>
+                    <td>$2,805 fee. Guarantees 15 business day response. Strongly recommended for OPT holders.</td>
+                </tr>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>&#9888; Premium Processing — Strongly Recommended for OPT Holders</strong>
+                <span contenteditable="true">Premium processing (Form I-907, $2,805) guarantees USCIS response in <b>15 business days</b>. Benefits: (1) Faster decision; (2) Earlier RFE notification = more response time; (3) Adjudication before Oct 1; (4) Peace of mind on status/cap-gap. <b>Applicant may legally pay premium processing fee</b>—only government fee beneficiary can voluntarily cover.</span>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 6: APPROVAL -->
+        <!-- ================================================================ -->
+        <div class="section" id="approval">
+            <h2>6. Approval &amp; Transitioning to H-1B Status</h2>
+
+            <h3>Change of Status (COS) — Most Common for OPT Holders in the U.S.</h3>
+            <p contenteditable="true">If COS approved, H-1B starts <b>Oct 1, 2026</b>. You receive Form I-797A with new I-94 attached.</p>
+            <ul contenteditable="true">
+                <li><b>Cannot begin H-1B employment before Oct 1</b> even if approved earlier—remain on F-1/OPT until then</li>
+                <li>Continue working under OPT between approval and Oct 1</li>
+                <li>F-1 terminates Oct 1—notify DSO and close SEVIS</li>
+                <li>No visa stamp needed to work in U.S.—I-797A with I-94 sufficient while in country</li>
+                <li>Travel abroad after Oct 1 requires H-1B visa stamp from consulate before re-entry</li>
+                <li>First H-1B valid 3 years; extendable 3 more (6 years total, exceptions for green card applicants)</li>
+            </ul>
+
+            <h3>Consular Processing — If You Are Outside the U.S.</h3>
+            <p contenteditable="true">If you chose consular processing or left the U.S.:</p>
+            <ul contenteditable="true">
+                <li>Wait for I-797B (Approval Notice for consular processing) from attorney</li>
+                <li>Complete Form DS-160 (Online Nonimmigrant Visa Application)</li>
+                <li>Schedule visa interview at U.S. consulate/embassy</li>
+                <li>Bring: I-797B, passport, DS-160 confirmation, photo, support letter, diplomas, transcripts</li>
+                <li>Consular officer may ask detailed questions about job, employer, duties, qualifications</li>
+                <li>Upon visa issuance, may enter U.S. up to 10 days before Oct 1</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>&#128161; COS vs. Consular Processing — Which to Choose?</strong>
+                <span contenteditable="true">For OPT holders in U.S., <b>COS is almost always preferred</b>. Avoids consular interview, visa denial risk, and administrative processing delays. Consular processing necessary if: (a) travel before COS approved; (b) prior visa issues need consulate resolution; (c) prefer visiting family abroad and obtaining visa stamp immediately. Discuss with attorney.</span>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 7: CAP-GAP -->
+        <!-- ================================================================ -->
+        <div class="section" id="cap-gap">
+            <h2>7. OPT Cap-Gap Extension — Critical for OPT Holders</h2>
+
+            <div class="alert alert-success">
+                <strong>&#10004; What is the Cap-Gap?</strong>
+                <span contenteditable="true">Cap-gap is <b>automatic extension</b> of F-1 status and (in some cases) OPT/STEM OPT work authorization for beneficiaries of timely filed H-1B cap petitions with COS request. Bridges gap between OPT end and Oct 1 H-1B start—prevents status/work authorization lapse.</span>
+            </div>
+
+            <h3>How It Works</h3>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Cap-Gap Extension</th>
+                    <th>Work Authorization?</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td>H-1B petition filed with COS request <b>while OPT EAD is still valid</b></td>
+                    <td>F-1 status AND employment authorization automatically extend through <b>September 30</b></td>
+                    <td><b>YES</b> — continue working under OPT through September 30</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>H-1B petition filed <b>during the 60-day grace period</b> after OPT expires (no active EAD)</td>
+                    <td>F-1 status extends through September 30</td>
+                    <td><b>NO</b> — you may remain in the U.S. legally but <b>cannot work</b> until October 1 H-1B start</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>H-1B petition is <b>denied or revoked</b> before October 1</td>
+                    <td>Cap-gap extension terminates immediately</td>
+                    <td><b>NO</b> — you revert to regular F-1 grace period rules; depart or pursue alternatives</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>H-1B petition is <b>withdrawn</b> before October 1</td>
+                    <td>Cap-gap extension terminates immediately</td>
+                    <td><b>NO</b></td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Beneficiary <b>travels outside the U.S.</b> while on cap-gap</td>
+                    <td>Cap-gap extension <b>terminates</b> upon departure</td>
+                    <td><b>NO</b> — may not be able to return until H-1B visa is issued by a consulate</td>
+                </tr>
+            </table>
+
+            <div class="denial-risk">
+                <h4>&#128683; Cap-Gap Risks — Read Carefully</h4>
+                <ul contenteditable="true">
+                    <li><b>Lottery selection alone is NOT enough:</b> The cap-gap does NOT begin until the actual I-129 petition with COS request is <b>filed and received by USCIS</b>. Being selected in the lottery only gives you the right to file. If your OPT expires before the petition is filed, you enter the 60-day grace period (no work authorization).</li>
+                    <li><b>Travel kills the cap-gap:</b> Leaving the U.S. while on cap-gap extension terminates the extension. You may not be able to return until your H-1B visa is issued at a consulate. <b>Do not travel internationally during this period without explicit attorney guidance.</b></li>
+                    <li><b>OPT expires before petition filed:</b> If the employer delays filing and your OPT expires before the I-129 is filed, you lose work authorization during the gap between OPT expiration and filing. File as early as possible within the window.</li>
+                    <li><b>STEM OPT reporting failures:</b> Missing your STEM OPT semi-annual validation reporting to your DSO, or failing to report employment changes within 10 days, can result in OPT termination — which can destroy the cap-gap protection.</li>
+                    <li><b>Unauthorized employment:</b> Any employment outside the scope of your OPT authorization (wrong employer, too many hours, etc.) can terminate your F-1 status and by extension the cap-gap.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 8: WEIGHTED SELECTION -->
+        <!-- ================================================================ -->
+        <div class="section" id="weighted">
+            <h2>8. New Weighted Selection Process (Effective FY 2027)</h2>
+
+            <p contenteditable="true">DHS final rule (effective Feb 27, 2026) replaces random lottery with <b>weighted selection</b> favoring higher-wage positions.</p>
+
+            <h3>How the Weighting Works</h3>
+            <ul contenteditable="true">
+                <li>Each registration weighted by <b>offered wage relative to prevailing wage</b> for occupation and geographic area</li>
+                <li>Higher wages = greater weight = higher selection probability</li>
+                <li>Still includes random element—NOT purely ranked by salary. Lower wages still have chance (reduced vs. old system)</li>
+                <li>Master's cap (20,000 for U.S. advanced degrees) maintained separately</li>
+                <li>Beneficiary-centric selection (one selection per person regardless of employer count) remains</li>
+            </ul>
+
+            <h3>What This Means for OPT Applicants</h3>
+            <ul contenteditable="true">
+                <li><b>Entry-level wages (Level I):</b> Lower selection odds vs. old random lottery</li>
+                <li><b>Specialized skills, advanced degrees, experience:</b> Higher wages = significant advantage</li>
+                <li>Employers may offer higher compensation to improve selection chances</li>
+                <li><b>SOC code and geographic area are strategically critical:</b> Same salary = different wage levels in different markets. Example—SOC 11-1021.00 General and Operations Managers in San Bernardino County: $96K = Level II, but same $96K might be Level I in San Francisco Bay Area (see Section 4 for full wage breakdown)</li>
+                <li>Does not affect <b>cap-exempt</b> employers (universities, etc.)</li>
+                <li>Work with attorney to honestly optimize wage level classification</li>
+            </ul>
+
+            <div class="alert alert-danger">
+                <strong>&#9888; Do NOT Misrepresent Wage Levels or Job Duties</strong>
+                <span contenteditable="true">Inflating wage level, misclassifying SOC code, or misrepresenting duties = <b>fraud</b>. Results: petition denial, revocation, permanent immigration bars (INA 212(a)(6)(C)), criminal prosecution. USCIS cross-references offered position, duties, and qualifications against claimed wage level. Integrity measures from FY 2024–2026 continue with aggressive enforcement.</span>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 9: DENIAL RISKS -->
+        <!-- ================================================================ -->
+        <div class="section" id="denials">
+            <h2>9. Top Denial Risks &amp; How to Avoid Them</h2>
+            <p contenteditable="true">Common RFE and denial reasons with prevention strategies. Address proactively during petition prep.</p>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Denial Risk</th>
+                    <th>What Goes Wrong</th>
+                    <th>How to Prevent It</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>1</b></td>
+                    <td><b>Not a Specialty Occupation</b></td>
+                    <td>USCIS determines the position does not require a specific bachelor's degree. Broad titles like "Business Analyst" or "IT Specialist" with generic degree requirements are frequently challenged.</td>
+                    <td>The support letter must show specific duties requiring specialized knowledge. Prove: (a) a degree in a <i>specific</i> field is required, (b) this is the industry norm (cite O*NET, BLS data), (c) the employer has a history of requiring this degree, (d) duties are complex enough that only a degreed person could perform them. Include expert opinion letters from professors or industry experts if needed.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>2</b></td>
+                    <td><b>Beneficiary Not Qualified</b></td>
+                    <td>The degree does not directly relate to the specialty occupation. A degree in "Liberal Arts" for a software developer role, or a 3-year foreign degree without proper equivalency evaluation.</td>
+                    <td>Obtain a thorough credential evaluation from a NACES or AICE-member evaluation service. If relying on work experience (3 years of progressive experience = 1 year of education), get detailed experience letters on company letterhead with specific duties, skills used, and dates of employment. Ensure the degree-to-job match is clearly articulated.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>3</b></td>
+                    <td><b>Employer-Employee Relationship</b></td>
+                    <td>Staffing companies, IT consulting firms, or employers placing workers at third-party client sites fail to demonstrate sufficient control over the beneficiary's daily work.</td>
+                    <td>Provide: executed contracts/MSAs/SOWs with end-clients, detailed organizational charts, supervision structure, description of the right to hire/fire/pay/supervise/assign duties. If at a third-party site, include an end-client letter confirming the engagement, site, duration, and reporting structure. Provide a detailed itinerary of services.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>4</b></td>
+                    <td><b>Inability to Pay Prevailing Wage</b></td>
+                    <td>Employer cannot demonstrate financial ability to pay the wage through tax returns, financials, or other evidence. Small companies and startups are particularly vulnerable.</td>
+                    <td>Provide: most recent year's federal tax return, audited financial statements, annual report (public companies), or bank statements showing sufficient net income or net current assets. For startups: include funding documentation, investor term sheets, bank statements, and a credible business plan.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>5</b></td>
+                    <td><b>LCA Deficiencies</b></td>
+                    <td>LCA not certified before filing. Worksite address doesn't match the petition. Wage on LCA is below prevailing wage. SOC code doesn't match the actual job duties.</td>
+                    <td>File the LCA early (February/March). Triple-check that the worksite address, SOC code, wage level, and dates are 100% consistent across the LCA, I-129, and support letter. If there are multiple worksites, each must be listed on the LCA or a separate LCA filed.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>6</b></td>
+                    <td><b>Status Maintenance Issues</b></td>
+                    <td>Gap in F-1 status, unauthorized employment, failure to report to DSO during STEM OPT, missed SEVIS reporting, or 60-day grace period violations.</td>
+                    <td>Review your SEVIS record with your DSO. Ensure all employment has been properly reported and validated. Keep every I-20, EAD card, and status document. Address any gaps or issues with your attorney <b>before</b> filing. Maintain full compliance throughout.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>7</b></td>
+                    <td><b>Fraud / Misrepresentation</b></td>
+                    <td>False information on registration or petition. "Benching" (not paying the H-1B wage during non-productive time). Fictitious or speculative job offers. Sham employers.</td>
+                    <td>USCIS conducts site visits (FDNS). Ensure the job is real, the employer is genuine, and ALL information is 100% truthful. A single material misrepresentation can trigger a permanent immigration bar under INA 212(a)(6)(C). Benching violations can lead to back-wage claims and employer debarment.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>8</b></td>
+                    <td><b>Missed Deadlines</b></td>
+                    <td>Petition not filed within the filing window. RFE response submitted late. LCA not posted for the required 10 consecutive business days. Registration fee payment failed.</td>
+                    <td>Track ALL deadlines meticulously — use multiple calendar reminders with buffer days. Premium processing helps ensure timely adjudication. Verify fee payments cleared. Confirm LCA posting dates with HR. Never wait until the last day for anything.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 10: DOCUMENT CHECKLIST -->
+        <!-- ================================================================ -->
+        <div class="section" id="documents">
+            <h2>10. Master Document Checklist</h2>
+            <p contenteditable="true">Use this interactive checklist to track all required documents. <b>Click any item to toggle the checkmark.</b> Gather these documents as early as possible — missing even one item can delay your filing.</p>
+
+            <h3>From the Applicant (Beneficiary)</h3>
+            <ul class="checklist" id="applicant-docs">
+                <li onclick="this.classList.toggle('done')">Valid passport — must match lottery registration exactly; valid for at least 6 months beyond intended stay (renew early if needed)</li>
+                <li onclick="this.classList.toggle('done')">All I-20 forms (initial, transfer, OPT, STEM OPT, any amendments or extensions)</li>
+                <li onclick="this.classList.toggle('done')">Current EAD card (Employment Authorization Document) — front and back copies</li>
+                <li onclick="this.classList.toggle('done')">I-94 Arrival/Departure Record — print from i94.cbp.dhs.gov; verify it shows correct status and dates</li>
+                <li onclick="this.classList.toggle('done')">Current and prior visa stamp pages in passport (even if expired — shows immigration history)</li>
+                <li onclick="this.classList.toggle('done')">Diploma(s) — bachelor's degree and any advanced degrees (originals + copies)</li>
+                <li onclick="this.classList.toggle('done')">Official transcripts from all degree-granting institutions (sealed, if possible)</li>
+                <li onclick="this.classList.toggle('done')">Credential evaluation for foreign degrees — from a NACES or AICE member evaluation service</li>
+                <li onclick="this.classList.toggle('done')">Current resume / CV — must be consistent with the petition details (job history, education, skills)</li>
+                <li onclick="this.classList.toggle('done')">Prior approval notices (I-797) for any previous immigration petitions or applications</li>
+                <li onclick="this.classList.toggle('done')">Experience letters from prior employers — on letterhead, with specific duties, title, dates, hours (if using experience toward degree equivalency)</li>
+                <li onclick="this.classList.toggle('done')">Professional licenses or certifications (if applicable to the specialty occupation)</li>
+                <li onclick="this.classList.toggle('done')">Two passport-style photographs (2x2 inches, recent, white background)</li>
+                <li onclick="this.classList.toggle('done')">Social Security Number (SSN) card or ITIN documentation</li>
+                <li onclick="this.classList.toggle('done')">Copy of any prior H-1B petitions or other immigration filings (if applicable)</li>
+            </ul>
+
+            <h3>From the Employer (Petitioner)</h3>
+            <ul class="checklist" id="employer-docs">
+                <li onclick="this.classList.toggle('done')">Signed Form I-129 + H Classification Supplement + H-1B Data Collection Supplement</li>
+                <li onclick="this.classList.toggle('done')">Certified LCA (Form ETA-9035) — must be certified by DOL before I-129 is filed</li>
+                <li onclick="this.classList.toggle('done')">Detailed employer support/offer letter on company letterhead — specific job duties, degree requirement, salary, start date, worksite</li>
+                <li onclick="this.classList.toggle('done')">Proof of LCA workplace posting — dates posted, physical location, photos of posting (if available)</li>
+                <li onclick="this.classList.toggle('done')">Company's most recent federal tax return (Form 1120 or equivalent) or audited financial statements</li>
+                <li onclick="this.classList.toggle('done')">Annual report, 10-K filing (publicly traded), or bank statements showing ability to pay the wage</li>
+                <li onclick="this.classList.toggle('done')">Organizational chart showing the beneficiary's position, reporting structure, and team</li>
+                <li onclick="this.classList.toggle('done')">Articles of incorporation or business registration documents</li>
+                <li onclick="this.classList.toggle('done')">IRS EIN verification letter (Form CP 575 or 147C)</li>
+                <li onclick="this.classList.toggle('done')">Client contracts / SOWs / MSAs (if worker will be placed at a third-party worksite)</li>
+                <li onclick="this.classList.toggle('done')">End-client letter confirming the engagement, worksite, project details, and duration (if applicable)</li>
+                <li onclick="this.classList.toggle('done')">Evidence of company operations — website, marketing materials, office lease, photos of workplace</li>
+            </ul>
+
+            <h3>Forms &amp; Fee Payments</h3>
+            <ul class="checklist" id="forms-docs">
+                <li onclick="this.classList.toggle('done')">Form I-129 (Petition for Nonimmigrant Worker) — completed and signed</li>
+                <li onclick="this.classList.toggle('done')">Form I-129 H Classification Supplement — completed</li>
+                <li onclick="this.classList.toggle('done')">Form I-129 H-1B and H-1B1 Data Collection Supplement — completed</li>
+                <li onclick="this.classList.toggle('done')">Form I-539 (Application to Change Status) — if requesting COS from F-1 to H-1B</li>
+                <li onclick="this.classList.toggle('done')">Form I-907 (Request for Premium Processing) — if using premium processing ($2,805)</li>
+                <li onclick="this.classList.toggle('done')">Form G-28 (Notice of Entry of Appearance as Attorney) — signed by attorney and employer</li>
+                <li onclick="this.classList.toggle('done')">Printed copy of H-1B lottery selection notice from USCIS online account</li>
+                <li onclick="this.classList.toggle('done')">Base filing fee payment ($780) — check payable to U.S. Department of Homeland Security</li>
+                <li onclick="this.classList.toggle('done')">ACWIA training fee payment ($750 or $1,500) — separate check</li>
+                <li onclick="this.classList.toggle('done')">Fraud Prevention and Detection fee ($500) — separate check</li>
+                <li onclick="this.classList.toggle('done')">Asylum Program fee ($300 or $600) — separate check</li>
+                <li onclick="this.classList.toggle('done')">Premium processing fee ($2,805) — separate check (if applicable)</li>
+                <li onclick="this.classList.toggle('done')">I-539 filing fee ($470) — separate check (if applicable)</li>
+            </ul>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 11: FEE SCHEDULE -->
+        <!-- ================================================================ -->
+        <div class="section" id="fees">
+            <h2>11. Fee Schedule</h2>
+            <p contenteditable="true">Below are the required government filing fees for an H-1B cap petition. <b>The employer is legally required to pay the base filing fee, ACWIA training fee, fraud fee, and asylum fee.</b> Violating this rule can result in petition denial, revocation, and employer debarment.</p>
+
+            <table class="fee-table">
+                <tr>
+                    <th>Fee Description</th>
+                    <th>Form / Reference</th>
+                    <th>Who Must Pay</th>
+                    <th>Amount (USD)</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td>H-1B Registration Fee</td>
+                    <td>Online (USCIS account)</td>
+                    <td>Employer</td>
+                    <td>$215</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Base Filing Fee</td>
+                    <td>Form I-129</td>
+                    <td>Employer</td>
+                    <td>$780</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>ACWIA Training Fee</td>
+                    <td>INA &sect; 214(c)(9)</td>
+                    <td>Employer (&le;25 employees: $750; &gt;25: $1,500)</td>
+                    <td>$750 / $1,500</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Fraud Prevention &amp; Detection Fee</td>
+                    <td>INA &sect; 214(c)(12)</td>
+                    <td>Employer</td>
+                    <td>$500</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Asylum Program Fee</td>
+                    <td>INA &sect; 214(c)(13)</td>
+                    <td>Employer (&le;25 employees: $300; &gt;25: $600)</td>
+                    <td>$300 / $600</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Premium Processing (optional but recommended)</td>
+                    <td>Form I-907</td>
+                    <td>Employer <b>or</b> Applicant (either may pay)</td>
+                    <td>$2,805</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Change of Status Application</td>
+                    <td>Form I-539</td>
+                    <td>Applicant or Employer</td>
+                    <td>$470</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Biometrics Fee (if required)</td>
+                    <td>USCIS biometrics</td>
+                    <td>Applicant</td>
+                    <td>$85</td>
+                </tr>
+            </table>
+
+            <div class="alert alert-danger">
+                <strong>&#9888; Fee Payment Rule — Violation Risks Denial</strong>
+                <span contenteditable="true">20 CFR 655.731 <b>prohibits employers from requiring or accepting payment</b> from beneficiary for base filing, ACWIA, fraud prevention, or asylum fees—directly or indirectly (payroll deductions, agreements, "reimbursements"). Discovery = denial, revocation, employer debarment, investigation. <b>Only fee applicant may pay: premium processing ($2,805)</b>.</span>
+            </div>
+
+            <h3>Cost Summary</h3>
+            <table class="fee-table">
+                <tr>
+                    <th>Scenario</th>
+                    <th>Employer Pays (Government Fees)</th>
+                    <th>Applicant May Pay</th>
+                    <th>Total Gov. Fees</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Small employer (&le;25 employees), no premium</td>
+                    <td>$215 + $780 + $750 + $500 + $300 = $2,545</td>
+                    <td>$470 (COS) + $85 (bio) = $555</td>
+                    <td>~$3,100</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Large employer (&gt;25 employees), with premium</td>
+                    <td>$215 + $780 + $1,500 + $500 + $600 = $3,595</td>
+                    <td>$2,805 (premium) + $470 (COS) + $85 (bio) = $3,360</td>
+                    <td>~$6,955</td>
+                </tr>
+            </table>
+            <p contenteditable="true" style="margin-top:10px"><b>Attorney fees</b> are separate and vary widely: $2,000–$8,000+ depending on the firm, region, and case complexity. The employer typically pays the attorney fees for preparing the petition, though arrangements vary.</p>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 12: FAQ -->
+        <!-- ================================================================ -->
+        <div class="section" id="faq">
+            <h2>12. Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">Can I travel while my H-1B petition is pending?</div>
+                <div class="faq-answer">
+                    <p>It depends on your current status and the type of petition filed:</p>
+                    <ul>
+                        <li><b>Change of Status (COS):</b> Traveling while a COS is pending is considered "abandonment" of the COS request. The H-1B may still be approved for consular processing, but you will have to leave the U.S. and likely get a visa stamp. <b>Do not travel without attorney approval.</b></li>
+                        <li><b>Consular Processing:</b> You can travel, but you must have a valid visa to re-enter. You cannot enter in H-1B status until 10 days before Oct 1 with a valid H-1B visa.</li>
+                        <li><b>Cap-Gap:</b> Traveling terminates the cap-gap extension. You cannot return until the H-1B is approved and you have the visa stamp.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Who pays for the H-1B fees?</div>
+                <div class="faq-answer">
+                    <p>The <b>employer</b> must pay the registration fee, base filing fee, ACWIA training fee, fraud prevention fee, and asylum program fee. Requiring the employee to pay these (even via payroll deduction) is illegal. The <b>employee</b> (beneficiary) generally pays for their own credential evaluations, visa application fees (at the consulate), and may voluntarily pay the premium processing fee.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if I get laid off while on H-1B?</div>
+                <div class="faq-answer">
+                    <p>You have a <b>60-day grace period</b> (or until the end of your I-94, whichever is shorter) to find a new employer to file an H-1B transfer petition, change to another status (like H-4 or F-1), or depart the U.S.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can my spouse work?</div>
+                <div class="faq-answer">
+                    <p>In general, H-4 spouses are <b>not</b> authorized to work unless the H-1B holder has an approved I-140 (immigrant petition for green card). This typically takes several years.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 13: HEALTHCARE PRACTICE ROADMAP -->
+        <!-- ================================================================ -->
+        <div class="section" id="healthcare-roadmap">
+            <h2>13. Case Study: Custom H-1B Roadmap for Primary Care/Urgent Care Practice</h2>
+            
+            <div class="alert alert-success">
+                <strong>📋 Practice Profile</strong>
+                <span contenteditable="true"><b>Type:</b> Primary Care/Urgent Care Clinic | <b>Location:</b> San Bernardino County, CA | <b>Position:</b> Operations Manager/Practice Manager | <b>SOC Code:</b> 11-1021.00 General and Operations Managers | <b>Target Wage Level:</b> Entry Level ($60,000/year)</span>
+            </div>
+
+            <h3>Position Overview: Operations Manager for Urgent Care Clinic</h3>
+            <p contenteditable="true"><b>Role Summary:</b> Plan, direct, and coordinate daily operations of primary care/urgent care medical facility, including clinical operations oversight, revenue cycle management, regulatory compliance, staff supervision, patient flow optimization, and strategic planning. This is a specialty occupation requiring a Bachelor's degree in Healthcare Administration, Business Administration, Public Health, or related field.</p>
+
+            <h3>Detailed Job Duties (Specialty Occupation Evidence)</h3>
+            <div contenteditable="true">
+                <ul>
+                    <li><b>Clinical Operations Management (30%):</b> Oversee daily clinic operations across multiple departments; coordinate patient scheduling systems; manage patient flow to minimize wait times; implement quality improvement initiatives; ensure clinical equipment maintenance and supply chain management; develop protocols for urgent care triage and treatment workflows</li>
+                    <li><b>Regulatory Compliance & Risk Management (25%):</b> Ensure compliance with HIPAA, OSHA, CDC guidelines, California Department of Public Health regulations, and The Joint Commission standards; manage medical records privacy and security programs; conduct internal audits; oversee infection control protocols; maintain state medical facility licensure; manage professional liability and workers' compensation programs</li>
+                    <li><b>Financial & Revenue Cycle Management (20%):</b> Develop and monitor annual operating budget ($3M-$8M); oversee medical billing, coding, and collections; analyze reimbursement trends (Medicare, Medi-Cal, commercial payers); negotiate contracts with insurance providers; manage accounts receivable; implement cost containment strategies; prepare financial reports for ownership</li>
+                    <li><b>Human Resources & Staff Development (15%):</b> Recruit, hire, and supervise clinical and administrative staff (15-40 employees); manage physician credentialing and privileging; oversee performance evaluations; ensure compliance with employment laws; coordinate continuing education and training programs; maintain staff licensure tracking systems</li>
+                    <li><b>Strategic Planning & Business Development (10%):</b> Develop strategic initiatives to expand patient base; analyze market trends and competition; implement telehealth programs; evaluate new service line opportunities; manage facility expansion projects; coordinate marketing and community outreach; prepare operational reports for board of directors</li>
+                </ul>
+            </div>
+
+            <h3>Why This Qualifies as a Specialty Occupation</h3>
+            <table>
+                <tr>
+                    <th>Regulatory Criterion</th>
+                    <th>Evidence for Your Position</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Bachelor's is normal minimum</b></td>
+                    <td>O*NET classifies SOC 11-1021.00 as Job Zone 4 requiring Bachelor's degree. U.S. Bureau of Labor Statistics reports 64% of Medical and Health Services Managers hold bachelor's degrees, with additional 34% holding master's. Healthcare operations management requires specialized education in healthcare administration, finance, regulatory compliance, and organizational management.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Degree requirement is industry standard</b></td>
+                    <td>American College of Healthcare Executives (ACHE) and Medical Group Management Association (MGMA) establish bachelor's in healthcare administration or related field as standard. California medical facility licensing regulations require administrative leadership with healthcare management education. Peer urgent care facilities in region require bachelor's for operations management roles.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Employer normally requires degree</b></td>
+                    <td>Your practice's organizational policy requires bachelor's degree for all operations management positions (provide: hiring policy documentation, previous operations manager job postings, personnel files showing degree requirements, organizational chart).</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Duties are specialized/complex</b></td>
+                    <td>Position requires: (1) Interpreting complex healthcare regulations (HIPAA, OSHA, state licensing); (2) Managing multi-million dollar budget with healthcare-specific reimbursement models; (3) Coordinating licensed clinical professionals; (4) Implementing healthcare quality metrics; (5) Ensuring patient safety and clinical outcomes. These responsibilities require theoretical and practical application of healthcare management principles taught at bachelor's level.</td>
+                </tr>
+            </table>
+
+            <h3>Wage Level Strategy for San Bernardino County</h3>
+            <p contenteditable="true"><b>Recommended Target: Level I ($60,000/year)</b></p>
+            
+            <table>
+                <tr>
+                    <th>Level</th>
+                    <th>Annual Salary</th>
+                    <th>Justification</th>
+                    <th>Selection Impact</th>
+                </tr>
+                <tr contenteditable="true" style="background: #eafaf1;">
+                    <td><b>Level I ✓</b></td>
+                    <td><b>$60,000</b></td>
+                    <td><b>RECOMMENDED:</b> Making $60,000. Candidate has been working with us under OPT for the past 6 months, requiring continued training.</td>
+                    <td>Lowest lottery odds, but accurately reflects the position level.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Level II</td>
+                    <td>$95,493</td>
+                    <td><b>Not suitable:</b> Requires years of experience that this entry-level position (with 6 months tenure) does not yet meet.</td>
+                    <td>Moderate lottery odds.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Level III</td>
+                    <td>$129,043</td>
+                    <td><b>Too high:</b> "Experienced/specialized" level matches role supervising 15-40 employees and significant experience which this candidate lacks.</td>
+                    <td>Higher lottery odds but not defensible for this level of experience.</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td>Level IV</td>
+                    <td>$162,614</td>
+                    <td><b>Aggressive:</b> "Fully competent/supervisory" typically reserved for senior roles.</td>
+                    <td>Highest lottery odds BUT increased RFE risk if duties don't support highest wage level</td>
+                </tr>
+            </table>
+
+            <p contenteditable="true" style="margin-top:15px;"><b>Strategic Recommendation:</b> Offer <b>$60,000/year</b> (Entry Level). Candidate has been working successfully under OPT for the past 6 months; this filing ensures continuity of their current role. While this provides lower lottery odds under the weighted selection, it is the honest and defensible classification for the role.</p>
+
+            <h3>Custom Timeline for Your Practice (FY 2027)</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Now – February 2026</div>
+                    <div class="timeline-title">Immediate Action Items</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>Legal Representation:</b> Attorney has been engaged for FY 2027 filing cycle. Provide them with requested documents immediately.</li>
+                            <li><b>Verify beneficiary's status:</b> Currently active on OPT (6 months tenure); confirm EAD expiration date.</li>
+                            <li><b>Document business necessity:</b> Prepare narrative explaining why you need operations manager (e.g., facility expansion, compliance requirements, operational complexity)</li>
+                            <li><b>Gather employer documents:</b> State medical facility license, DEA registration, NPI numbers, malpractice insurance, CA business license, 2024 tax return (Form 1120 or 1065), 2024 financial statements, organizational chart</li>
+                            <li><b>Review beneficiary credentials:</b> Obtain degree (must be in healthcare administration, business, public health, or closely related field); if foreign degree, order NACES evaluation NOW</li>
+                            <li><b>Draft job description:</b> Use duties listed above; ensure bachelor's in specific field is clearly required</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">February 15-28, 2026</div>
+                    <div class="timeline-title">LCA Preparation</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>Confirm worksite address:</b> Exact street address where beneficiary will work (if multiple locations, list primary + secondary on LCA)</li>
+                            <li><b>Attorney files LCA:</b> SOC 11-1021.00, San Bernardino County, Wage Level I, $60,000/year (or your chosen wage), Bachelor's degree required</li>
+                            <li><b>Post LCA notice:</b> Must post at worksite for 10 consecutive business days (break room, staff bulletin board, or electronic system accessible to all employees). Take photos with date stamps.</li>
+                            <li><b>Set up Public Access File:</b> Binder with LCA, posting documentation, wage information, working conditions statement. Keep at worksite for DOL inspection.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item critical">
+                    <div class="timeline-date">March 4-19, 2026</div>
+                    <div class="timeline-title">Registration Window</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>Attorney submits registration:</b> Your practice (as employer), beneficiary info, $215 fee</li>
+                            <li><b>Critical:</b> Beneficiary's passport info must be 100% accurate</li>
+                            <li><b>You sign attestation:</b> Under penalty of perjury that job is real, wage will be paid, no coordination with others</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Late March/Early April 2026</div>
+                    <div class="timeline-title">Lottery Results</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>If SELECTED:</b> Proceed immediately to petition preparation (next step)</li>
+                            <li><b>If NOT SELECTED:</b> Options: (1) Reapply FY 2028; (2) Consider alternative visas (O-1 if beneficiary has extraordinary ability); (3) Begin PERM labor certification for green card (no lottery); (4) Evaluate if similar candidates available with cap-exempt status</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item critical">
+                    <div class="timeline-date">April 1 – June 30, 2026</div>
+                    <div class="timeline-title">Petition Filing (If Selected)</div>
+                    <div contenteditable="true">
+                        <p><b>Your Practice Must Provide:</b></p>
+                        <ul>
+                            <li><b>Employer support letter</b> (attorney drafts; you sign): Detailed description of clinic, services offered, patient volume, number of employees, organizational structure, why operations manager is needed, specific job duties (use list above), why bachelor's required, how beneficiary qualifies</li>
+                            <li><b>Financial evidence:</b> 2024 Form 1120/1065 tax return, P&L statements, balance sheet, bank statements (prove ability to pay $60K salary)</li>
+                            <li><b>Organizational chart:</b> Show where operations manager fits; who they supervise; who they report to (owner/medical director)</li>
+                            <li><b>State medical facility license:</b> Current CA license for urgent care clinic</li>
+                            <li><b>Professional liability insurance:</b> Certificate of insurance showing adequate coverage</li>
+                            <li><b>Lease or property deed:</b> Proof of physical business location</li>
+                            <li><b>Photos of facility:</b> Exterior, waiting room, exam rooms, office space (prove legitimate healthcare operation)</li>
+                            <li><b>Sample patient records</b> (redacted for HIPAA): Demonstrate active patient care (remove all identifying info)</li>
+                            <li><b>Payor contracts:</b> Agreements with insurance companies, Medicare/Medi-Cal participation</li>
+                            <li><b>Previous operations manager job posting</b> (if you had one): Shows degree requirement is normal for your practice</li>
+                        </ul>
+                        <p style="margin-top:10px;"><b>Recommended:</b> File with Premium Processing ($2,805) for 15-day response. Healthcare petitions sometimes get RFEs on employer-employee relationship—premium processing gives more time to respond before Oct 1.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">April – September 2026</div>
+                    <div class="timeline-title">Adjudication & RFE Response</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>Common RFEs for healthcare practices:</b>
+                                <ul style="margin-top:5px;">
+                                    <li>Specialty occupation: Provide expert opinion letter from healthcare administration professor or MGMA certification documentation</li>
+                                    <li>Employer-employee relationship: Emphasize you maintain direct supervision, control work schedule, assign duties, can terminate employment</li>
+                                    <li>Ability to pay: If startup or recent practice, provide investor funding documentation, owner capital contributions, projected patient revenue</li>
+                                    <li>Beneficiary qualifications: Ensure degree is in healthcare admin or closely related; if business or unrelated degree, may need expert evaluator letter explaining applicability</li>
+                                </ul>
+                            </li>
+                            <li><b>Prepare for potential USCIS site visit:</b> FDNS may visit clinic unannounced to verify: (1) Clinic exists and is operational; (2) Beneficiary will work there; (3) Job duties match petition. Ensure all staff know about the pending H-1B.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">October 1, 2026</div>
+                    <div class="timeline-title">H-1B Employment Begins</div>
+                    <div contenteditable="true">
+                        <ul>
+                            <li><b>Payroll compliance:</b> Pay exactly the LCA wage ($60,000 or higher) starting Oct 1. No exceptions, no "probationary periods" at lower wage.</li>
+                            <li><b>Maintain Public Access File:</b> Update with final approved I-129, I-797 approval notice, actual wage paid</li>
+                            <li><b>Report material changes:</b> If operations manager changes worksites, duties significantly change, or wage decreases, must file amended H-1B petition</li>
+                            <li><b>No benching:</b> Must pay full salary even during slow periods, vacations, or training. Healthcare employers are frequently audited on this.</li>
+                            <li><b>Track for future:</b> H-1B valid 3 years; can extend another 3 years. Consider starting PERM (green card) in year 2-3 if you want to retain long-term.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Healthcare Employer-Specific Compliance Considerations</h3>
+            <div class="denial-risk">
+                <h4>⚕️ Additional Requirements for Medical Practices</h4>
+                <ul contenteditable="true">
+                    <li><b>State Medical Facility Licensing:</b> USCIS may verify your clinic holds current CA license to operate urgent care/primary care facility. Include license in petition package.</li>
+                    <li><b>HIPAA Compliance:</b> Operations manager will access PHI (Protected Health Information). Ensure written HIPAA training plan, business associate agreements, and privacy officer designation are documented. USCIS sometimes requests evidence of compliance infrastructure.</li>
+                    <li><b>Professional Liability Insurance:</b> Include certificate of insurance showing adequate malpractice coverage for facility. Demonstrates financial stability and legitimate healthcare operation.</li>
+                    <li><b>Medicare/Medi-Cal Enrollment:</b> Participation in government health programs strengthens legitimacy. Include CMS enrollment letters or Medi-Cal provider agreements.</li>
+                    <li><b>Physician Credentialing:</b> If operations manager oversees credentialing, document your credentialing committee, policies, and medical staff bylaws. Shows complexity of role.</li>
+                    <li><b>Clinical Quality Programs:</b> Document any quality improvement initiatives, patient satisfaction programs, or clinical outcome tracking. Proves need for experienced healthcare operations management.</li>
+                    <li><b>The Joint Commission/AAAHC Accreditation:</b> If accredited, include certificate. If pursuing accreditation, mention in support letter as reason operations manager is needed.</li>
+                    <li><b>No License Confusion:</b> Clarify that operations manager role does NOT require medical license (not practicing medicine). This is administrative/managerial position overseeing business operations of medical facility.</li>
+                </ul>
+            </div>
+
+            <!-- Cost summary removed as per user request -->
+
+            <!-- Job posting removed as per user request -->
+
+            <h3>Checklist: Documents Your Practice Must Gather</h3>
+            <ul class="checklist">
+                <li onclick="this.classList.toggle('done')">Current California medical facility license (urgent care/primary care)</li>
+                <li onclick="this.classList.toggle('done')">DEA registration certificate (if applicable)</li>
+                <li onclick="this.classList.toggle('done')">National Provider Identifier (NPI) documentation</li>
+                <li onclick="this.classList.toggle('done')">Professional/malpractice liability insurance certificate</li>
+                <li onclick="this.classList.toggle('done')">Business license (city/county)</li>
+                <li onclick="this.classList.toggle('done')">2024 federal tax return (Form 1120, 1120-S, or 1065)</li>
+                <li onclick="this.classList.toggle('done')">2024 financial statements: P&L, balance sheet, cash flow statement</li>
+                <li onclick="this.classList.toggle('done')">Bank statements (last 6 months) showing ability to pay $60K salary</li>
+                <li onclick="this.classList.toggle('done')">Organizational chart showing operations manager position</li>
+                <li onclick="this.classList.toggle('done')">Medicare enrollment letter / CMS participation documentation</li>
+                <li onclick="this.classList.toggle('done')">Medi-Cal provider agreement (if applicable)</li>
+                <li onclick="this.classList.toggle('done')">Commercial insurance payor contracts (Blue Cross, Aetna, etc.)</li>
+                <li onclick="this.classList.toggle('done')">Facility lease agreement or property deed</li>
+                <li onclick="this.classList.toggle('done')">Professional photos of clinic (exterior, waiting room, exam rooms, offices)</li>
+                <li onclick="this.classList.toggle('done')">Sample patient records (fully redacted per HIPAA — show volume only)</li>
+                <li onclick="this.classList.toggle('done')">HIPAA compliance documentation (training records, privacy policies, BAAs)</li>
+                <li onclick="this.classList.toggle('done')">Quality improvement program documentation (if any)</li>
+                <li onclick="this.classList.toggle('done')">Accreditation certificate (Joint Commission, AAAHC, AAASF — if applicable)</li>
+                <li onclick="this.classList.toggle('done')">Previous job postings for operations/practice manager role (shows degree requirement)</li>
+                <li onclick="this.classList.toggle('done')">Marketing materials: website, brochures showing services offered</li>
+                <li onclick="this.classList.toggle('done')">Vendor contracts: EHR system, medical supplies, lab services</li>
+                <li onclick="this.classList.toggle('done')">Credentialing committee policies and medical staff bylaws (if applicable)</li>
+            </ul>
+
+            <div class="alert alert-warning" style="margin-top: 20px;">
+                <strong>⚠️ Critical Action Items for Your Practice</strong>
+                <span contenteditable="true">
+                    <b>By February 15:</b> Engage immigration attorney, gather all employer documents, verify beneficiary's OPT status and degree<br>
+                    <b>By February 28:</b> File LCA with DOL, post LCA notice at clinic for 10 days, set up Public Access File<br>
+                    <b>March 4-19:</b> Submit registration during lottery window<br>
+                    <b>If Selected (April+):</b> File I-129 petition with premium processing; respond to any RFE within deadline<br>
+                    <b>October 1:</b> Begin paying LCA wage; maintain strict payroll compliance; prepare for potential FDNS site visit
+                </span>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- SECTION 14: PERSONAL NOTES -->
+        <!-- ================================================================ -->
+        <div class="section" id="notes">
+            <h2>14. Personal Notes</h2>
+            <p>Use this space to keep track of your own notes, important dates, attorney contact information, and case-specific details:</p>
+            <div class="notes-area" contenteditable="true"></div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- VISUAL SUMMARY TABLE -->
+        <!-- ================================================================ -->
+        <div class="section">
+            <h2>Quick Reference: Key Dates at a Glance (FY 2027)</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                    <th>Action Required By</th>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Oct–Dec 2025</b></td>
+                    <td>Preparation: engage attorney, gather documents, define position, research wages</td>
+                    <td>Employer, Attorney, Applicant</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Jan–Feb 2026</b></td>
+                    <td>Finalize registration data, verify passport info, begin LCA preparation</td>
+                    <td>Attorney, Employer, Applicant</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Feb 27, 2026</b></td>
+                    <td>Weighted selection rule takes effect</td>
+                    <td>Awareness — all parties</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Mar 4, 2026 (noon ET)</b></td>
+                    <td>H-1B electronic registration window OPENS</td>
+                    <td>Employer / Attorney</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Mar 19, 2026 (noon ET)</b></td>
+                    <td>Registration window CLOSES — no extensions</td>
+                    <td>Employer / Attorney</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Late Mar–Early Apr 2026</b></td>
+                    <td>Weighted lottery selection results announced in USCIS accounts</td>
+                    <td>Attorney monitors account</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Apr 1 – Jun 30, 2026*</b></td>
+                    <td>Filing window: submit I-129 petition if selected</td>
+                    <td>Attorney, Employer, Applicant</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Apr–Sep 2026</b></td>
+                    <td>USCIS adjudication; respond to RFEs promptly if issued</td>
+                    <td>Attorney (with input from Employer &amp; Applicant)</td>
+                </tr>
+                <tr contenteditable="true">
+                    <td><b>Oct 1, 2026</b></td>
+                    <td>H-1B status officially begins (if approved with COS)</td>
+                    <td>Applicant begins H-1B employment; Employer compliance begins</td>
+                </tr>
+            </table>
+            <p contenteditable="true" style="font-size:0.88em; color: var(--light-text); margin-top: 10px;">*Exact filing window dates are determined by USCIS based on the selection notice. Always confirm current dates with your attorney and the USCIS website.</p>
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="alert alert-info">
+            <strong>&#128203; Legal Disclaimer</strong>
+            <span contenteditable="true">For <b>informational purposes only</b>\u2014does <b>not</b> constitute legal advice. Immigration law is complex and changes frequently. Fees, deadlines, procedures, and interpretations subject to change by USCIS, DOL, DOS, DHS. Always consult qualified immigration attorney for advice specific to your situation. Prepared from publicly available USCIS announcements and federal regulations as of February 2026, including FY 2027 cap registration and weighted selection final rule.</span>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p contenteditable="true">OPT to H-1B Visa Process Guide &bull; FY 2027 Cap Season &bull; Last Updated: February 2026</p>
+            <p style="margin-top:8px; font-size:0.82em;">All content on this page is editable — click any text to customize it for your specific case. Click checklist items to mark them complete.</p>
+        </div>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar no-print">
+        <button class="toolbar-btn" onclick="window.print()" title="Print this guide or save as PDF">&#128424; Print / PDF</button>
+        <button class="toolbar-btn" onclick="resetChecklist()" title="Uncheck all checklist items">&#8635; Reset Checklist</button>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top no-print" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#8593;</button>
+
+    <script>
+        // Show/hide back-to-top button
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('backToTop');
+            if (window.scrollY > 400) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // Reset all checklist items
+        function resetChecklist() {
+            document.querySelectorAll('.checklist li.done').forEach(function(item) {
+                item.classList.remove('done');
+            });
+        }
+
+        // Checklist items - click to toggle
+        document.querySelectorAll('.checklist li').forEach(function(item) {
+            item.title = 'Click to toggle checkmark';
+        });
+    </script>
+
+</body>
+</html>
